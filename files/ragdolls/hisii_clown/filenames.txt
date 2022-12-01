@@ -1,0 +1,5 @@
+mods/conga_twitch_mod/files/ragdolls/hisii_clown/head.png
+mods/conga_twitch_mod/files/ragdolls/hisii_clown/leg_l.png
+mods/conga_twitch_mod/files/ragdolls/hisii_clown/leg_r.png
+mods/conga_twitch_mod/files/ragdolls/hisii_clown/arm.png
+mods/conga_twitch_mod/files/ragdolls/hisii_clown/torso.png

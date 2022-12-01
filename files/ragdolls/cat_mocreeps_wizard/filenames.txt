@@ -1,0 +1,7 @@
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/head.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/body.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/legs_1.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/legs_2.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/legs_3.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/legs_4.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_wizard/tail.png

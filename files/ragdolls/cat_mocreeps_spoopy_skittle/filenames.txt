@@ -1,0 +1,7 @@
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/head.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/body.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/legs_1.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/legs_2.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/legs_3.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/legs_4.png
+mods/conga_twitch_mod/files/ragdolls/cat_mocreeps_spoopy_skittle/tail.png
