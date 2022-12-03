@@ -1,0 +1,54 @@
+<Entity tags="shield_ghost_event">
+	<SpriteComponent 
+		image_file="mods/conga_twitch_mod/files/projectiles_gfx/ghost_status_ailment.xml"
+		>
+	</SpriteComponent>
+	<LuaComponent 
+		script_source_file="data/scripts/animals/tiny_ghost_move.lua"
+		execute_every_n_frame="1"
+		>
+	</LuaComponent>
+
+	<LuaComponent 
+		script_enabled_changed="data/scripts/animals/tiny_ghost_enabled_changed.lua"
+		execute_every_n_frame="-1"
+		>
+	</LuaComponent>
+	
+	<AudioComponent
+		file="data/audio/Desktop/animals.bank"
+		event_root="animals/tiny_ghost" >
+	</AudioComponent>
+
+	<AudioLoopComponent
+		file="data/audio/Desktop/animals.bank"
+		event_name="animals/tiny_ghost/movement_loop"
+		set_speed_parameter="1"
+		auto_play="1">
+	</AudioLoopComponent>
+	
+	<LifetimeComponent
+		lifetime="28800"
+		>
+	</LifetimeComponent>
+
+
+	<!-- Status Clearing AI -->
+	
+	<!-- Extinguish the player only if they're on fire -->
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/animals/ghost_extinguish_ai.lua"
+		execute_every_n_frame="120"
+		execute_times="-1"
+		>
+	</LuaComponent>
+	
+	<!-- Defrosts the player only if they're frozen -->
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/animals/ghost_unfreeze_ai.lua"
+		execute_every_n_frame="30"
+		execute_times="-1"
+		>
+	</LuaComponent>
+
+</Entity>

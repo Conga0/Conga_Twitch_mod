@@ -1,0 +1,27 @@
+<Entity>
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+	<GameEffectComponent
+		effect="NONE"
+		frames="3"
+	></GameEffectComponent>
+	
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/misc/effect_polymorph_forced_hellworm.lua"
+		execute_every_n_frame="1">
+	</LuaComponent>
+
+	<LuaComponent 
+		execute_on_removed="1"
+		execute_every_n_frame="-1"
+		script_source_file="data/scripts/projectiles/polymorph_explosion.lua" >
+	</LuaComponent>
+
+    <AudioComponent
+        file="data/audio/Desktop/misc.bank"
+        event_root="game_effect/polymorph" >
+    </AudioComponent>
+
+</Entity>

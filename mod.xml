@@ -1,6 +1,6 @@
 	<Mod
 		name="Conga's Twitch Expansion Pack"
-		description="Adds many new twitch events to vote on!"
+		description="Also known as CTEP, Adds many new twitch events to vote on!"
 		tags="gameplay,audio,streaming integration,funny"
 		dont_upload_folders="FOLDER_TO_IGNORE1|FOLDER_TO_IGNORE2"
 		dont_upload_files="FILE_TO_IGNORE1|FILE_TO_IGNORE2"

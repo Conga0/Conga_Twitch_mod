@@ -1,10 +1,10 @@
 local ModEnabledMoCreep = ModIsEnabled("Mo_Creeps")
-local congatwitch_random_wraiths_name = "$integration_mocreep_RANDOM_WRAITHS_name"
-local congatwitch_random_wraiths_desc = "$integration_mocreep_RANDOM_WRAITHS_desc"
+local congatwitch_random_wraiths_name = "$integration_congatwitch_RANDOM_WRAITHS_name"
+local congatwitch_random_wraiths_desc = "$integration_congatwitch_RANDOM_WRAITHS_desc"
 
 if ModEnabledMoCreep then
-	congatwitch_random_wraiths_name = "$integration_mocreep_RANDOM_WRAITHS_name_mocreepcompat"
-	congatwitch_random_wraiths_desc = "$integration_mocreep_RANDOM_WRAITHS_desc_mocreepcompat"
+	congatwitch_random_wraiths_name = "$integration_congatwitch_RANDOM_WRAITHS_name_mocreepcompat"
+	congatwitch_random_wraiths_desc = "$integration_congatwitch_RANDOM_WRAITHS_desc_mocreepcompat"
 end
 
 
@@ -234,7 +234,7 @@ end
 		ui_description = "$integration_congatwitch_CLOWNS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.4,
+		weight = 0.7,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			local players = get_players()
@@ -316,8 +316,8 @@ end
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_RANDOM_WRAITHS",
-		ui_name = ongatwitch_random_wraiths_name,
-		ui_description = ongatwitch_random_wraiths_desc,
+		ui_name = congatwitch_random_wraiths_name,
+		ui_description = congatwitch_random_wraiths_desc,
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
 		weight = 0.8,
@@ -431,6 +431,608 @@ end
                 local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_mana_infinite.xml", x, y )
                 EntityAddChild( entity_id, cid )
                 GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SHIELD_PLAYER_BIG",
+		ui_name = "$integration_congatwitch_SHIELD_PLAYER_BIG_name",
+		ui_description = "$integration_congatwitch_SHIELD_PLAYER_BIG_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.00,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/shield_oversized.xml", x, y )
+				set_lifetime( effect_id )
+				EntityAddChild( entity_id, effect_id )
+				
+				add_icon_in_hud( effect_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/shield_oversized.png", event )
+			end
+		end,
+	})
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SAMPO",
+		ui_name = "$integration_congatwitch_SAMPO_name",
+		ui_description = "$integration_congatwitch_SAMPO_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.0001,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+                local x, y = EntityGetTransform( entity_id )
+
+                EntityLoad( "data/entities/animals/boss_centipede/sampo.xml", x, y )
+                EntityLoad("mods/conga_twitch_mod/files/entities/particles/image_emitters/magical_symbol_materia_blue.xml", x, y)
+				GameTriggerMusicFadeOutAndDequeueAll( 5.0 )
+				GameTriggerMusicEvent( "music/oneshot/tripping_balls_01", false, x, y )
+			end
+		end,
+	})
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_TRANSFORM_BULLETS",
+		ui_name = "$integration_congatwitch_TRANSFORM_BULLETS_name",
+		ui_description = "$integration_congatwitch_TRANSFORM_BULLETS_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/protect_enemies.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.8,
+		kind = STREAMING_EVENT_BAD,
+		delay_timer = 180,
+		action_delayed = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/effect_spells_to_bullets.xml", x, y )
+				set_lifetime( effect_id )
+				EntityAddChild( entity_id, effect_id )
+				
+				add_icon_in_hud( effect_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/spells_to_bullets.png", event )
+			end
+		end,
+	})
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_GOOD_SPELL_DROP",
+		ui_name = "$integration_congatwitch_GOOD_SPELL_DROP_name",
+		ui_description = "$integration_congatwitch_GOOD_SPELL_DROP_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/protect_enemies.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.8,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				local opts = { "LIGHT_BULLET_TRIGGER", "LIGHT_BULLET_TRIGGER_2", "LIGHT", "BUCKSHOT", "BLOOD_MAGIC", "MANA_REDUCE", "CHAINSAW", "RECHARGE", "HOMING", "BLOODLUST", "BURST_8", "BURST_2", "DAMAGE", "BLACK_HOLE", "HEAL_BULLET", "PIERCING_SHOT", }
+    
+				
+				local count = 3
+	
+				-- reward
+				SetRandomSeed( GameGetFrameNum(), x + y + entity_id )
+				--EntityLoad("data/entities/particles/image_emitters/magical_symbol_hobo_money.xml", x, y)
+                EntityLoad("mods/conga_twitch_mod/files/entities/particles/image_emitters/magical_symbol_materia_blue.xml", x, y)
+				GamePlaySound( "data/audio/Desktop/projectiles.snd", "player_projectiles/crumbling_earth/create", x, y)
+			
+				for i = 1, count do
+					local rnd = Random(1, #opts)
+					CreateItemActionEntity(opts[rnd], x - 8 * count + (i - 0.5) * 16, y)
+					table.remove(opts, rnd)
+				end
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_CAGE",
+		ui_name = "$integration_congatwitch_CAGE_name",
+		ui_description = "$integration_congatwitch_CAGE_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.90,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/cage.xml", x, y )
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/event_cage_visual.xml", x, y )
+				EntityAddChild( entity_id, effect_id )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_MASS_STATUS_WET",
+		ui_name = "$integration_congatwitch_MASS_STATUS_WET_name",
+		ui_description = "$integration_congatwitch_MASS_STATUS_WET_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.6,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				EntityLoad( "mods/conga_twitch_mod/files/entities/projectiles/mass_status_wet.xml", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_MASS_STATUS_DRUNK",
+		ui_name = "$integration_congatwitch_MASS_STATUS_DRUNK_name",
+		ui_description = "$integration_congatwitch_MASS_STATUS_DRUNK_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.6,
+		kind = STREAMING_EVENT_NEUTRAL,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				EntityLoad( "mods/conga_twitch_mod/files/entities/projectiles/mass_status_drunk.xml", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_MASS_STATUS_FIRE",
+		ui_name = "$integration_congatwitch_MASS_STATUS_FIRE_name",
+		ui_description = "$integration_congatwitch_MASS_STATUS_FIRE_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.6,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				EntityLoad( "mods/conga_twitch_mod/files/entities/projectiles/mass_status_fire.xml", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_STATUS_AILMENT_GHOST",
+		ui_name = "$integration_congatwitch_STATUS_AILMENT_GHOST_name",
+		ui_description = "$integration_congatwitch_STATUS_AILMENT_GHOST_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.9,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			local players = get_players()
+			
+			for a,player in ipairs( players ) do
+				if EntityGetComponent(player, "GenomeDataComponent") ~= nil then
+					local count = 1
+					local random_viewer_names = nil
+					local entity_id = nil
+					for i=1,count do
+						entity_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/ghost_status_ailment.xml" )
+
+						set_lifetime( entity_id, 2.0 )
+						EntityAddChild( player, entity_id )
+						
+						local random_viewer_name = StreamingGetRandomViewerName()
+						add_text_above_head( entity_id, random_viewer_name )
+
+						if random_viewer_name ~= "" then
+							if random_viewer_names == nil then
+								random_viewer_names = random_viewer_name
+							else
+								random_viewer_names = random_viewer_names .. ", " .. random_viewer_name
+							end
+						end
+					end
+
+					if random_viewer_names ~= nil then
+						random_viewer_names = random_viewer_names .. " "
+						add_icon_in_hud( entity_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/ghost_status_ailment.png", event, random_viewer_names )
+					end
+				end
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_LAG_PLAYER",
+		ui_name = "$integration_congatwitch_LAG_PLAYER_name",
+		ui_description = "$integration_congatwitch_LAG_PLAYER_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.8,
+		delay_timer = 180,
+		kind = STREAMING_EVENT_BAD,
+		action_delayed = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_lag_player.xml", x, y )
+                EntityAddChild( entity_id, cid )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SEA_BERSERKIUM",
+		ui_name = "$integration_congatwitch_SEA_BERSERKIUM_name",
+		ui_description = "$integration_congatwitch_SEA_BERSERKIUM_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/sea_berserkium.xml", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_POLY_WORM_END",
+		ui_name = "$integration_congatwitch_POLY_WORM_END_name",
+		ui_description = "$integration_congatwitch_POLY_WORM_END_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_AWFUL,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_polymorph_forced_hellworm.xml", x, y )
+                EntityAddChild( entity_id, cid )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_CIRCLE_SMOKE",
+		ui_name = "$integration_congatwitch_CIRCLE_SMOKE_name",
+		ui_description = "$integration_congatwitch_CIRCLE_SMOKE_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/circle_smoke.xml", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SUMMON_PATA",
+		ui_name = "$integration_congatwitch_SUMMON_PATA_name",
+		ui_description = "$integration_congatwitch_SUMMON_PATA_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				EntityLoad( "data/entities/props/physics_pata.xml", x, y - 20 )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SPELLS_TO_DEATHCROSS",
+		ui_name = "$integration_congatwitch_SPELLS_TO_DEATHCROSS_name",
+		ui_description = "$integration_congatwitch_SPELLS_TO_DEATHCROSS_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.6,
+		kind = STREAMING_EVENT_BAD,
+		delay_timer = 180,
+		action_delayed = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/effect_spells_to_deathcross.xml", x, y )
+				set_lifetime( effect_id )
+				EntityAddChild( entity_id, effect_id )
+				
+				add_icon_in_hud( effect_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/death_crosses.png", event )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_RANDOM_ENEMY_ATTACKS",
+		ui_name = "$integration_congatwitch_RANDOM_ENEMY_ATTACKS_name",
+		ui_description = "$integration_congatwitch_RANDOM_ENEMY_ATTACKS_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_BAD,
+		delay_timer = 180,
+		action = function(event)
+			local t = GameGetFrameNum()
+			for id,enemy in pairs(get_enemies_in_radius(800)) do
+				local pos_x, pos_y = EntityGetTransform(enemy)
+				SetRandomSeed(pos_x + pos_y, pos_x * pos_y)
+
+				local projPool = {
+					"acidburst",
+					"acidshot",
+					"acidshot_slow",
+					"arrow",
+					"bat",
+					"bloomshot",
+					"bomb",
+					"bomb_cart",
+					"bomb_holy",
+					"cocktail",
+					--"bomb_holy_giga",
+					"bomb_small",
+					"bossdragon",
+					"bossdragon_ray",
+					"buckshot",
+					"bullet_poison",
+					"chaos_polymorph",
+					"chunk_of_soil",
+					"circle_acid_small",
+					"circle_blood_small",
+					"circle_lava_small",
+					--"circle_water",
+					"clusterbomb",
+					"cocktail",
+					"coward_bullet",
+					"darkflame",
+					"darkflame_stationary",
+					"dotshot",
+					"dotshot_strong",
+					"egg_fire",
+					"egg_monster",
+					"egg_purple",
+					"egg_red",
+					"egg_slime",
+					"egg_worm",
+					"enlightened_laser_dark_wand",
+					"enlightened_laser_elec_wand",
+					"enlightened_laser_fire_wand",
+					"enlightened_laser_light_wand",
+					"explosion",
+					"fire_trap",
+					"fireball",
+					"fireball_bigfirebug",
+					"fireball_firebug", 
+					"fireball_ghostly",
+					"flamethrower",
+					"freeze_circle",
+					"fungus",
+					"fungus_big_explosion",
+					"fungus_explosion",
+					"gasblob",
+					"glitter_bomb",
+					"glue",
+					"glue_shot",
+					"grenade_leader",
+					"grenade_scavenger",
+					"healshot",
+					"healshot_safe_haven",
+					"healshot_slow",
+					"hiddenshot",
+					"ice",
+					"iceball",
+					"icethrower",
+					"invisshot",
+					"laser_bouncy",
+					"laser_lasergun",
+					"laser_spear",
+					"laser_turret",
+					"laserbeam",
+					"laserbeam_green",
+					"lavashot",
+					"meteor_green",
+					"lightning",
+					"lurkershot",
+					"machinegun_bullet_roboguard_big",
+					"machinegun_bullet_slow",
+					"machinegun_bullet_slower",
+					"machinegun_bullet_tank",
+					"machinegun_bullet_tank_super",
+					"megalaser_blue",
+					"megalaser_blue_beam",
+					"meteor_green",
+					"mine",
+					"mine_scavenger",
+					"neutralizershot",
+					"orb",
+					"orb_blue",
+					"orb_cursed",
+					"orb_dark",
+					"orb_expanding",
+					"orb_green",
+					"orb_green_accelerating",
+					"orb_green_boss_dragon",
+					"orb_green_spin",
+					"orb_hearty",
+					"orb_homing",
+					"orb_neutral",
+					"orb_pink",
+					"orb_pink_big",
+					"orb_pink_big_slow",
+					"orb_pink_big_super",
+					"orb_pink_big_super_shrapnel",
+					"orb_pink_fast",
+					"orb_pink_super",
+					--"orb_poly",
+					"orb_purple",
+					"orb_swapper",
+					"orb_tele",
+					"orb_tiny",
+					"orb_twitchy",
+					"orb_weaken",
+					"orb_wither",
+					"orb_weaken",
+					"orb_wither",
+					"orbspawner",
+					"orbspawner_blue",
+					"orbspawner_green",
+					"pebble",
+					"pollen",
+					"pollen_ball",
+					--"polyorb",
+					"present",
+					"propane_tank",
+					"radioactive_blob",
+					"radioactive_blob_trail",
+					"radioactive_liquid",
+					--"rain_gold",
+					--"remove_ground",
+					"rocket_tank",
+					"rocket_tiny",
+					"rocket_tiny_roll",
+					"sentryshot",
+					"shieldshot",
+					"shieldshot_small",
+					"slimeblob",
+					"slimetrail",
+					"smalltentacle",
+					"smalltentacle_melee",
+					"sniperbullet",
+					"soldiershot",
+					"spit_trap",
+					"summonshine",
+					"tentacle",
+					"thunder_trap",
+					"thunderball",
+					"thunderball_line",
+					"thunderball_slow",
+					"tnt",
+					"wraith_glowing_laser",
+					"deck/all_blackholes",
+					"deck/all_deathcrosses",
+					"deck/all_discs",
+					--"deck/all_nukes",
+					"deck/all_rockets",
+					"deck/berserk_field",
+					"deck/big_magic_shield_start",
+					"deck/black_hole",
+					"deck/black_hole_big",
+					"deck/black_hole_giga",
+					"deck/bloodtentacle",
+					"deck/bomb_detonator",
+					"deck/bouncy_orb",
+					"deck/bubbleshot",
+					"deck/bullet",
+					"deck/bullet_heavy",
+					"deck/bullet_slow",
+					"deck/chain_bolt",
+					"deck/chainsaw",
+					"deck/chaos_polymorph_field",
+					"deck/charm_field",
+					"deck/cloud_acid",
+					"deck/cloud_blood",
+					"deck/cloud_water",
+					"deck/crumbling_earth",
+					"deck/disc_bullet",
+					"deck/disc_bullet_big",
+					"deck/disc_bullet_bigger",
+					"deck/grenade",
+					"deck/grenade_tier_2",
+					"deck/grenade_tier_3",
+					"deck/infestation",
+					"deck/luminous_drill",
+					"deck/sausage",
+					--"deck/sea_acid",
+					--"deck/sea_alcohol",
+					"deck/sea_water",
+					--"deck/sea_lava",
+					"deck/spitter",
+					"deck/spitter_tier_2",
+					"deck/spitter_tier_3",
+					"deck/swarm_wasp",
+					"deck/swarm_fly",
+					"deck/swarm_firebug",
+					"deck/touch_gold",
+					"deck/worm_shot",
+					"deck/megalaser",
+					"deck/light_bullet",
+					"deck/spiral_shot",
+					"deck/spore_pod",
+				}
+
+				local projFile = projPool[Random(1,#projPool)]
+
+				local comp = EntityGetFirstComponent( enemy, "AnimalAIComponent" )
+				if comp ~= nil then
+					ComponentSetValue2( comp, "attack_ranged_entity_file", "data/entities/projectiles/" .. projFile .. ".xml" )
+					if (projFile == "healshot") or (projFile == "healshot_safe_haven") or (projFile == "healshot_slow") or (projFile == "invisshot") or (projFile == "shieldshot") or (projFile == "shieldshot_small") then
+						ComponentSetValue2( comp, "tries_to_ranged_attack_friends", true )
+						ComponentSetValue2( comp, "attack_if_damaged_probability", 0 )
+						ComponentSetValue2( comp, "escape_if_damaged_probability", 100 )
+						ComponentSetValue2( comp, "attack_ranged_enabled", true )
+						--GamePrint("My status on shooting friends is true and my projectile is " .. projFile)
+					else 
+						ComponentSetValue2( comp, "tries_to_ranged_attack_friends", false )
+						ComponentSetValue2( comp, "attack_ranged_enabled", true )
+						--GamePrint("My status on shooting friends is false and my projectile is " .. projFile)
+					end
+				end
+
+				local attackComp = EntityGetComponentIncludingDisabled( enemy, "AIAttackComponent" )
+				if attackComp ~= nil then
+					for i,comp in ipairs(attackComp) do
+						ComponentSetValue2( comp, "attack_ranged_entity_file", "data/entities/projectiles/" .. projFile .. ".xml" )
+					end
+				end
 			end
 		end,
 	})

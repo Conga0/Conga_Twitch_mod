@@ -19,7 +19,7 @@
 			needs_food="0"
 			sense_creatures="1"
 			attack_ranged_enabled="1"
-			attack_ranged_entity_file="mods/mo_creeps/files/entities/projectiles/slimeblob_mud.xml"
+			attack_ranged_entity_file="mods/conga_twitch_mod/files/entities/projectiles/slimeblob_mud.xml"
 			attack_ranged_action_frame="1"
 			attack_ranged_frames_between="130" 
 			attack_ranged_min_distance="90"
@@ -33,7 +33,7 @@
 		<SpriteComponent
 			alpha="1"
 			_enabled="1"
-			image_file="mods/mo_creeps/files/enemies_gfx/mudman_friendly.xml"
+			image_file="mods/conga_twitch_mod/files/enemies_gfx/mudman_friendly.xml"
 			offset_x="0"
 			offset_y="0" >
 		</SpriteComponent>
@@ -41,7 +41,7 @@
 		<DamageModelComponent 
             hp="6.0"
             materials_create_messages="1"
-			ragdoll_filenames_file="mods/mo_creeps/files/ragdolls/mudman_friendly/filenames.txt" 
+			ragdoll_filenames_file="mods/conga_twitch_mod/files/ragdolls/mudman_friendly/filenames.txt" 
 			fire_probability_of_ignition="0"
 			blood_material="soil"
     		blood_spray_material="mud"

@@ -1,0 +1,21 @@
+<Entity >
+    <InheritTransformComponent
+		only_position="1"
+		>
+	</InheritTransformComponent>
+
+	<UIIconComponent
+		name="$integration_congatwitch_CAGE_name"
+		description="$integration_congatwitch_CAGE_desc"
+		icon_sprite_file="mods/conga_twitch_mod/files/ui_gfx/status_indicators/cage.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+	
+	<LifetimeComponent
+		lifetime="900"
+		>
+	</LifetimeComponent>
+</Entity>
