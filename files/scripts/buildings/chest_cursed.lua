@@ -19,7 +19,6 @@ local pool = {
     "firemage_weak",
     "monk",
     "necromancer",
-    "necromancer_shop",
     "slimeshooter",
     "skullrat",
     "skullfly",

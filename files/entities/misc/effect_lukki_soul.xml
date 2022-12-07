@@ -1,0 +1,43 @@
+<Entity name="flight_buff" >
+	
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+    
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/status_effects/flight_start.lua"
+		execute_on_added="0"
+		execute_every_n_frame="5"
+		execute_times="1"
+		>
+	</LuaComponent>
+    
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/status_effects/flight_finish.lua"
+		execute_on_added="0"
+		execute_every_n_frame="1800"
+		execute_times="1"
+		>
+	</LuaComponent>
+
+    <LifetimeComponent
+    	lifetime="1805"
+    >
+	</LifetimeComponent>
+
+	<UIIconComponent
+		name="$integration_congatwitch_LUKKI_SOUL_name"
+		description="$integration_congatwitch_LUKKI_SOUL_desc"
+		icon_sprite_file="mods/conga_twitch_mod/files/ui_gfx/status_indicators/lukki_soul.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+	
+	<CellEaterComponent
+		radius="19" 
+		eat_probability="20">
+	</CellEaterComponent>
+
+</Entity>

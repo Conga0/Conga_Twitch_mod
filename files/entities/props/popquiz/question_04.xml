@@ -1,0 +1,12 @@
+<Entity name="popquiz_entity" >
+
+	<SpriteComponent 
+		z_index="30"
+		image_file="mods/conga_twitch_mod/files/props_gfx/question_04.png" 
+		offset_x="64"
+		offset_y="32" >
+	</SpriteComponent>
+
+	<!-- have timer script in here incase you take too long answering the question -->
+</Entity>
+

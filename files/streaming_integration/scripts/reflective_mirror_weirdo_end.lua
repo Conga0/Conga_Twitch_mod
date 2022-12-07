@@ -10,7 +10,7 @@ if ( comp_lua ~= nil ) then
 	for i,v in ipairs( comp_lua ) do
 		local name = ComponentGetValue2( v, "script_damage_received" )
 		
-		if ( name == "mods/conga_twitch_mod/files/streaming_integration/scripts/reflective_mirror_weirdo.lua" ) or ( name == "mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_memory.lua" ) then
+		if ( name == "mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_damage.lua" ) or ( name == "mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_memory.lua" ) then
 			EntityRemoveComponent(player, v)
 		end
 	end

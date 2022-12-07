@@ -1,0 +1,78 @@
+<Entity name="popquiz_entity" >
+
+	<!-- Particle Emitter fx -->
+	<ParticleEmitterComponent 
+		_enabled="1"
+		emitted_material_name="fire"
+		x_pos_offset_min="0"
+		x_pos_offset_max="0"
+		y_pos_offset_min="0"
+		y_pos_offset_max="0"
+		x_vel_min="-0"
+		x_vel_max="0"
+		y_vel_min="-0"
+		y_vel_max="0"
+		gravity.y="0.0"
+		lifetime_min="1"
+		lifetime_max="1"
+		count_min="1"
+		count_max="1"
+		render_on_grid="1"
+		fade_based_on_lifetime="1"
+		area_circle_radius.min="0"
+		area_circle_radius.max="0"
+		cosmetic_force_create="0"
+		airflow_force="0.211"
+		airflow_time="0.81"
+		airflow_scale="0.05"
+		emission_interval_min_frames="3"
+		emission_interval_max_frames="4"
+		emit_cosmetic_particles="1"
+		image_animation_file="mods/conga_twitch_mod/files/props_gfx/timer_emitter_12.png"
+		image_animation_speed="1"
+		image_animation_loop="1"
+		is_emitting="1" >
+	</ParticleEmitterComponent>
+
+    <LifetimeComponent
+    	lifetime="2160"
+    >
+	</LifetimeComponent>
+
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/buildings/popquiz_timeout.lua"
+		execute_every_n_frame="2150"
+		execute_times="1" >
+	</LuaComponent>
+
+	<!-- Punishment for trying to escape the question -->
+
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/scripts/buildings/popquiz_escape.lua"
+		execute_every_n_frame="60"
+		execute_times="35" >
+	</LuaComponent>
+
+    <ParticleEmitterComponent 
+        emitted_material_name="spark_white"
+        gravity.y="0.0"
+        lifetime_min="0.1"
+        lifetime_max="0.1"
+        count_min="200"
+        count_max="200"
+        render_on_grid="1"
+        fade_based_on_lifetime="1"
+        area_circle_radius.min="256"
+        area_circle_radius.max="256"
+        cosmetic_force_create="0"
+        airflow_force="0.3"
+        airflow_time="0.01"
+        airflow_scale="0.05"
+        emission_interval_min_frames="0"
+        emission_interval_max_frames="0"
+        emit_cosmetic_particles="1"
+        is_emitting="1" >
+    </ParticleEmitterComponent>
+
+</Entity>
+

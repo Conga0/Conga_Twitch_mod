@@ -1,11 +1,18 @@
+[img]https://i.imgur.com/kLVdrfd.png[/img]
+
 Welcome to Conga's Twitch Expansion Pack!
 This mod aims to be an expansion pack to the Twitch Integration Vote List!
 
-Currently, 30 new events are added, ranging from spawning Cute Cats to turning all Spells to Worms and even Granting Temporary Wand Tinkering!
+As of writing, 40 new events are added, ranging from spawning Cute Cats to turning all Spells to Worms and even Granting Temporary Wand Tinkering!
 
 Encounter Clowns!
 Become a Swapper Mage!
 See Hallucinations!
+Get Popquiz'd!
+Sink in a sea of Berserkium!
+See Pandora's Chest!
+Reflect Projectiles!
+Find new chat-donated Relics!
 So much more is possible with Conga's Twitch Expansion Pack
 
 You can view a full list of events here:
@@ -13,6 +20,7 @@ https://docs.google.com/document/d/1qYJXTFK2Ore9PRLMmE7dJbwUo4Azr7hCVMrRMmkfceE/
 
 Goodluck and have fun!
 
+[img]https://i.imgur.com/93DtGeD.png[/img]
 
 If you wish to support my work in a tangiable manner, you can donate here:
 https://ko-fi.com/congalyne

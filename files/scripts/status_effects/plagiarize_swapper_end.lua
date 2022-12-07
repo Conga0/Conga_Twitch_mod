@@ -4,6 +4,8 @@ dofile("data/scripts/lib/utilities.lua")
 local entity_id = GetUpdatedEntityID() 
 local player = EntityGetRootEntity( entity_id ) 
 
+if player == nil then player = EntityGetWithTag("player_unit")[1]
+
 --Removes swapper effect to player
 local comp_lua = EntityGetComponentIncludingDisabled( player, "LuaComponent" )
 if ( comp_lua ~= nil ) then

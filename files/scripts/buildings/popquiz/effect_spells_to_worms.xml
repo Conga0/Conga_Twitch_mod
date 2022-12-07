@@ -1,0 +1,25 @@
+<Entity >
+	<InheritTransformComponent />
+   
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/streaming_integration/scripts/effect_spells_to_worms.lua"
+		execute_every_n_frame="3"
+		>
+	</LuaComponent>
+	
+	<LifetimeComponent
+		lifetime="1800"
+		>
+	</LifetimeComponent>
+
+	<UIIconComponent
+		name="$integration_congatwitch_TRANSFORM_WORMS_name"
+		description="$integration_congatwitch_TRANSFORM_WORMS_desc"
+		icon_sprite_file="mods/conga_twitch_mod/files/ui_gfx/status_indicators/worm.png"
+		is_perk="0"
+		display_above_head="1"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+  
+</Entity>

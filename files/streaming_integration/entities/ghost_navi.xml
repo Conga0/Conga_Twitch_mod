@@ -1,0 +1,80 @@
+<Entity tags="shield_ghost_event">
+
+
+	<!-- Sprite -->
+	<SpriteComponent 
+		image_file="mods/conga_twitch_mod/files/projectiles_gfx/ghost_navi.xml"
+		>
+	</SpriteComponent>
+
+	<SpriteComponent 
+		image_file="mods/conga_twitch_mod/files/projectiles_gfx/ghost_navi_emissive.xml"
+		>
+	</SpriteComponent>
+		
+	<SpriteComponent 
+		alpha="0.55"
+		image_file="data/particles/fog_of_war_hole_huge.xml"
+		smooth_filtering="1"
+		fog_of_war_hole="1"
+		>
+	</SpriteComponent>
+
+	<!-- Movement AI -->
+	<LuaComponent 
+		script_source_file="data/scripts/animals/tiny_ghost_move.lua"
+		execute_every_n_frame="1"
+		>
+	</LuaComponent>
+
+	<LuaComponent 
+		script_enabled_changed="data/scripts/animals/tiny_ghost_enabled_changed.lua"
+		execute_every_n_frame="-1"
+		>
+	</LuaComponent>
+	
+	<!-- Audio -->
+	<AudioComponent
+		file="data/audio/Desktop/animals.bank"
+		event_root="animals/tiny_ghost" >
+	</AudioComponent>
+
+	<AudioLoopComponent
+		file="data/audio/Desktop/animals.bank"
+		event_name="animals/tiny_ghost/movement_loop"
+		set_speed_parameter="1"
+		auto_play="1">
+	</AudioLoopComponent>
+	
+	<!-- Lifetime, 8 minutes -->
+	<LifetimeComponent
+		lifetime="28800"
+		>
+	</LifetimeComponent>
+
+	<!-- Emits guiding powder towards the nearest orb every 30-60 seconds -->
+	<ParticleEmitterComponent 
+		emitted_material_name="orb_powder"
+		offset.x="-1"
+		offset.y="0"
+		x_pos_offset_min="-8"
+		y_pos_offset_min="-8"
+		x_pos_offset_max="8"
+		y_pos_offset_max="8"
+		x_vel_min="-4"
+		x_vel_max="4"
+		y_vel_min="-10"
+		y_vel_max="5"
+		count_min="10"
+		count_max="12"
+		lifetime_min="0.3"
+		lifetime_max="1.6"
+		render_on_grid="1"
+		create_real_particles="1"
+		emit_cosmetic_particles="0"
+		emission_interval_min_frames="1100"
+		emission_interval_max_frames="2100"
+		is_emitting="1" >
+	</ParticleEmitterComponent>
+
+</Entity>

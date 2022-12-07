@@ -1,7 +1,6 @@
 dofile_once("data/scripts/lib/utilities.lua")
-local seasonalSetting = ModSettingGet( "mo_creeps.seasonal_events" )
-	
-local ambrosiaCats = ModSettingGet( "mo_creeps.congacat_cat_immortal" )
+
+local ambrosiaCats = ModSettingGet( "conga_twitch.congatwitch_cat_immortal" )
 local cat_list = { "cat_mocreeps", "cat_mocreeps_black", "cat_mocreeps", "cat_mocreeps_black", "cat_mocreeps_white", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_tiger" }
 
 local catPath = "animals"
@@ -12,15 +11,15 @@ else
 	catPath = "animals"
 end
 
-if seasonalSetting == true then
-	local year, month, day = GameGetDateAndTimeLocal()
-	
-	if ( month == 10 ) and ( day >= 1 ) then -- Halloween Event
-		cat_list = { "cat_mocreeps", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_white", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_tiger" }
-	elseif ( month == 12 ) and ( day >= 22 ) then --Smissmass Event
-		cat_list = { "cat_mocreeps", "cat_mocreeps_black", "cat_mocreeps_white", "cat_mocreeps_white", "cat_mocreeps_white", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_tiger" }
-	end
+
+local year, month, day = GameGetDateAndTimeLocal()
+
+if ( month == 10 ) and ( day >= 1 ) then -- Halloween Event
+	cat_list = { "cat_mocreeps", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_black", "cat_mocreeps_white", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_tiger" }
+elseif ( month == 12 ) and ( day >= 22 ) then --Smissmass Event
+	cat_list = { "cat_mocreeps", "cat_mocreeps_black", "cat_mocreeps_white", "cat_mocreeps_white", "cat_mocreeps_white", "cat_mocreeps_spoopy", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_skittle", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_frisky", "cat_mocreeps_spoopy_tiger" }
 end
+
 
 
 local entity_id    = GetUpdatedEntityID()
@@ -60,31 +59,31 @@ elseif ((goldenCatSeed >= 40) and (valid == true)) then
 	valid = false
 end
 
-if seasonalSetting == true then
-	-- Halloween Event
-	if ( month == 10 ) and ( day >= 1 ) then
-		if esotericCatSeed >= 95 and (valid == true) then
-			EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_esoteric.xml", pos_x, pos_y )
-			valid = false
-		end
-	end
 
-	-- Smissmass Event
-	if ( month == 10 ) and ( day >= 1 ) then
-		if goldenCatSeed <= 4 and (valid == true) then
-			EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_golden.xml", pos_x, pos_y )
-			valid = false
-		elseif goldenCatSeed <= 6 and (valid == true) then
-			EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_spoopy_golden.xml", pos_x, pos_y )
-			valid = false
-		end
-
-		if rainbowCatSeed <= 2 and (valid == true) then
-			EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_sorako.xml", pos_x, pos_y )
-			valid = false
-		end
+-- Halloween Event
+if ( month == 10 ) and ( day >= 1 ) then
+	if esotericCatSeed >= 95 and (valid == true) then
+		EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_esoteric.xml", pos_x, pos_y )
+		valid = false
 	end
 end
+
+-- Smissmass Event
+if ( month == 10 ) and ( day >= 1 ) then
+	if goldenCatSeed <= 4 and (valid == true) then
+		EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_golden.xml", pos_x, pos_y )
+		valid = false
+	elseif goldenCatSeed <= 6 and (valid == true) then
+		EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_spoopy_golden.xml", pos_x, pos_y )
+		valid = false
+	end
+
+	if rainbowCatSeed <= 2 and (valid == true) then
+		EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/cat_mocreeps_sorako.xml", pos_x, pos_y )
+		valid = false
+	end
+end
+
 
 if valid == true then
 	EntityLoad( "mods/conga_twitch_mod/files/entities/" .. catPath .. "/" .. target .. ".xml", pos_x, pos_y )

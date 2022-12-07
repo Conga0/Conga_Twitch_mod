@@ -1,0 +1,37 @@
+<Entity name="popquiz_entity" tags="teleportable_NOT,item_physics,item_pickup,effectable_prop">
+	<UIInfoComponent
+		name="528"
+		>
+	</UIInfoComponent>
+
+  <ItemComponent
+    item_name="528"
+    stats_count_as_item_pick_up="0"
+    play_spinning_animation="0"
+    custom_pickup_string="$itempickup_open"
+    play_pick_sound="0" >
+  </ItemComponent>
+	
+	<SpriteComponent
+		image_file="mods/conga_twitch_mod/files/items_gfx/popquiz_answer.png"
+		offset_x="8"
+		offset_y="8"
+		update_transform="1"
+		update_transform_rotation="0"
+		>
+	</SpriteComponent>
+  
+  <LuaComponent 
+    script_item_picked_up="mods/conga_twitch_mod/files/scripts/buildings/popquiz_answer_wrong.lua" >
+  </LuaComponent>
+
+  <LightComponent 
+    _tags="enabled_in_world"
+    r="255"
+    g="255"
+    b="255"
+    radius="64"
+    fade_out_time="0.75" >
+  </LightComponent>
+
+</Entity>

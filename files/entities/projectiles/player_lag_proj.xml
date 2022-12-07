@@ -1,13 +1,9 @@
-<Entity name="$projectile_default" tags="projectile_player" >
+<Entity name="$projectile_default" tags="projectile_player,teleportable_NOT" >
 
-	<Base file="data/entities/base_projectile.xml" >
-		<VelocityComponent
-		  gravity_y="0"
-		  air_friction="1.7"
-		  mass="0.04"
-		  >
-		</VelocityComponent>
-	</Base>
+	<VelocityComponent
+		mass="0.05"
+		affect_physics_bodies="1" >
+	</VelocityComponent>
 
   <TeleportProjectileComponent
     min_distance_from_wall="4">

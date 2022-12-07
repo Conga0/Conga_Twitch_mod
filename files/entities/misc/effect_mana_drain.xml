@@ -43,7 +43,7 @@
 	<UIIconComponent
 		name="$status_congatwitch_manadrain_name"
 		description="$status_congatwitch_manadrain_desc"
-		icon_sprite_file="data/ui_gfx/status_indicators/mana_degradation.png"
+		icon_sprite_file="mods/conga_twitch_mod/files/ui_gfx/status_indicators/mana_degradation.png"
 		is_perk="0"
 		display_above_head="1"
 		display_in_hud="1"

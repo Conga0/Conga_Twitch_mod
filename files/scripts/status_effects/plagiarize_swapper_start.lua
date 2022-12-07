@@ -16,3 +16,6 @@ EntityAddComponent2(
 		execute_times=-1
 	}
 )
+
+local start_frame = GameGetFrameNum()
+GlobalsSetValue( "ctep_swapper_curse", tostring(start_frame) )

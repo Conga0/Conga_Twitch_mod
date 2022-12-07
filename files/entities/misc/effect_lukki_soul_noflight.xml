@@ -1,0 +1,17 @@
+<Entity >
+	
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>
+
+    <LifetimeComponent
+    	lifetime="300"
+    >
+	</LifetimeComponent>
+	
+	<CellEaterComponent
+		radius="19" 
+		eat_probability="100">
+	</CellEaterComponent>
+
+</Entity>

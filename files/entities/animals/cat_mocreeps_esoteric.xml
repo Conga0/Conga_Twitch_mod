@@ -104,7 +104,7 @@
 	</Base>
   
 	<SpriteParticleEmitterComponent
-		sprite_file="mods/mo_creeps/files/particles/spark_electric_white.xml"
+		sprite_file="mods/conga_twitch_mod/files/particles/spark_electric_white.xml"
 		delay="0"
 		lifetime="0"
 		emissive="1"

@@ -3,6 +3,12 @@ function damage_received( damage, desc, entity_who_caused, is_fatal )
 		return
 	end
 
+	local frame = GameGetFrameNum()
+	local last_frame = tonumber( GlobalsGetValue( "ctep_swapper_curse", "-3200" ) )
+	if frame >= last_frame + 3010 then
+		dofile_once("mods/conga_twitch_mod/files/scripts/status_effects/plagiarize_swapper_end.lua")
+	end
+
 	local entity_a    = GetUpdatedEntityID()
 	local xa,ya = EntityGetTransform( entity_a )
 	

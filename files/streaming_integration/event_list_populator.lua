@@ -1,4 +1,5 @@
 local ModEnabledMoCreep = ModIsEnabled("Mo_Creeps")
+local MocreepTest = HasFlagPersistent( "mocreeps_card_unlocked_welcome_hint" )
 local congatwitch_random_wraiths_name = "$integration_congatwitch_RANDOM_WRAITHS_name"
 local congatwitch_random_wraiths_desc = "$integration_congatwitch_RANDOM_WRAITHS_desc"
 
@@ -119,7 +120,7 @@ end
 	})
 	end
 
-	if ModEnabledMoCreep == false then
+	if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_MUD_MEN",
@@ -127,7 +128,7 @@ end
 		ui_description = "$integration_congatwitch_MUD_MEN_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.75,
+		weight = 0.85,
 		kind = STREAMING_EVENT_GOOD,
 		action = function(event)
 			local players = get_players()
@@ -156,7 +157,7 @@ end
 	})
 	end
 
-	if ModEnabledMoCreep == false then
+	if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_SUMMON_SKOUDE",
@@ -178,7 +179,7 @@ end
 	end
 
 
-	if ModEnabledMoCreep == false then
+	if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_HUNGRY_ORB",
@@ -186,7 +187,7 @@ end
 		ui_description = "$integration_congatwitch_HUNGRY_ORB_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.05,
+		weight = 0.4,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			local players = get_players()
@@ -202,7 +203,7 @@ end
 	end
 
 
-	if ModEnabledMoCreep == false then
+	if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_DELUSIONAL",
@@ -226,7 +227,7 @@ end
 	end
 
 
-	if ModEnabledMoCreep == false then
+	if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_CLOWNS",
@@ -234,7 +235,7 @@ end
 		ui_description = "$integration_congatwitch_CLOWNS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.7,
+		weight = 0.8,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			local players = get_players()
@@ -264,7 +265,7 @@ end
 	end
 
 
-	if ModEnabledMoCreep == false then
+	if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_SWAPPER_CURSE",
@@ -297,7 +298,7 @@ end
 		ui_description = "$integration_congatwitch_MIRROR_CURSE_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.6,
+		weight = 0.8,
 		kind = STREAMING_EVENT_GOOD,
 		action = function(event)
 			local players = get_players()
@@ -397,7 +398,7 @@ end
 		ui_description = "$integration_congatwitch_MANA_DRAIN_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.65,
+		weight = 0.75,
 		kind = STREAMING_EVENT_BAD,
 		action = function(event)
 			local players = get_players()
@@ -511,8 +512,8 @@ end
 		ui_description = "$integration_congatwitch_GOOD_SPELL_DROP_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/protect_enemies.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.8,
-		kind = STREAMING_EVENT_BAD,
+		weight = 1.0,
+		kind = STREAMING_EVENT_GOOD,
 		action = function(event)
 			for i,entity_id in pairs( get_players() ) do
 				local x, y = EntityGetTransform( entity_id )
@@ -566,7 +567,7 @@ end
 		ui_description = "$integration_congatwitch_MASS_STATUS_WET_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.6,
+		weight = 0.7,
 		kind = STREAMING_EVENT_GOOD,
 		action = function(event)
 			for i,entity_id in pairs( get_players() ) do
@@ -585,7 +586,7 @@ end
 		ui_description = "$integration_congatwitch_MASS_STATUS_DRUNK_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.6,
+		weight = 0.7,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			for i,entity_id in pairs( get_players() ) do
@@ -604,7 +605,7 @@ end
 		ui_description = "$integration_congatwitch_MASS_STATUS_FIRE_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.6,
+		weight = 0.7,
 		kind = STREAMING_EVENT_BAD,
 		action = function(event)
 			for i,entity_id in pairs( get_players() ) do
@@ -774,7 +775,7 @@ end
 		ui_description = "$integration_congatwitch_SPELLS_TO_DEATHCROSS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 0.6,
+		weight = 0.9,
 		kind = STREAMING_EVENT_BAD,
 		delay_timer = 180,
 		action_delayed = function(event)
@@ -798,7 +799,7 @@ end
 		ui_description = "$integration_congatwitch_RANDOM_ENEMY_ATTACKS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 1.0,
+		weight = 1.2,
 		kind = STREAMING_EVENT_BAD,
 		delay_timer = 180,
 		action = function(event)
@@ -837,12 +838,12 @@ end
 					"darkflame_stationary",
 					"dotshot",
 					"dotshot_strong",
-					"egg_fire",
-					"egg_monster",
-					"egg_purple",
-					"egg_red",
-					"egg_slime",
-					"egg_worm",
+					--"egg_fire",
+					--"egg_monster",
+					--"egg_purple",
+					--"egg_red",
+					--"egg_slime",
+					--"egg_worm",
 					"enlightened_laser_dark_wand",
 					"enlightened_laser_elec_wand",
 					"enlightened_laser_fire_wand",
@@ -1033,6 +1034,306 @@ end
 						ComponentSetValue2( comp, "attack_ranged_entity_file", "data/entities/projectiles/" .. projFile .. ".xml" )
 					end
 				end
+			end
+		end,
+	})
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SPARKBOLT_FLOOD",
+		ui_name = "$integration_congatwitch_SPARKBOLT_FLOOD_name",
+		ui_description = "$integration_congatwitch_SPARKBOLT_FLOOD_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/protect_enemies.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.8,
+		kind = STREAMING_EVENT_NEUTRAL,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				local opts = { "LIGHT_BULLET", "LIGHT_BULLET", "LIGHT_BULLET", "LIGHT_BULLET", "LIGHT_BULLET", "LIGHT_BULLET", "LIGHT_BULLET_TRIGGER", "LIGHT_BULLET_TRIGGER", "LIGHT_BULLET_TRIGGER_2", }
+    
+				
+				local count = 20
+	
+				-- reward
+				SetRandomSeed( GameGetFrameNum(), x + y + entity_id )
+				--EntityLoad("data/entities/particles/image_emitters/magical_symbol_hobo_money.xml", x, y)
+                EntityLoad("mods/conga_twitch_mod/files/entities/particles/image_emitters/magical_symbol_materia_blue.xml", x, y)
+				GamePlaySound( "data/audio/Desktop/projectiles.snd", "player_projectiles/crumbling_earth/create", x, y)
+			
+				for i = 1, count do
+					local rnd = Random(1, #opts)
+					CreateItemActionEntity(opts[rnd], x - 8 * count + (i - 0.5) * 16, y)
+				end
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_CRIT_100",
+		ui_name = "$integration_congatwitch_CRIT_100_name",
+		ui_description = "$integration_congatwitch_CRIT_100_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.00,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_crit_100.xml", x, y )
+				--set_lifetime( effect_id )
+				EntityAddChild( entity_id, effect_id )
+				
+				add_icon_in_hud( effect_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/crit_100.png", event )
+			end
+		end,
+	})
+
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_NETHER_PORTAL",
+		ui_name = "$integration_congatwitch_NETHER_PORTAL_name",
+		ui_description = "$integration_congatwitch_NETHER_PORTAL_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.9,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+				GlobalsSetValue( "ctep_nether_x", tostring(x) )
+				GlobalsSetValue( "ctep_nether_y", tostring(y) )
+
+				EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/portal_nether_into.xml", x, y - 60 )
+				EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x, y - 60 )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_FLIGHT_INFINITE",
+		ui_name = "$integration_congatwitch_FLIGHT_INFINITE_name",
+		ui_description = "$integration_congatwitch_FLIGHT_INFINITE_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.00,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+                local x, y = EntityGetTransform( entity_id )
+
+                local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_flight_infinite.xml", x, y )
+                EntityAddChild( entity_id, cid )
+                GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
+			end
+		end,
+	})
+
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_JUMPSCARE",
+		ui_name = "$integration_congatwitch_JUMPSCARE_name",
+		ui_description = "$integration_congatwitch_JUMPSCARE_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_AWFUL,
+		action = function(event)
+
+			local creep_id = 0
+			local pool = {
+				"boss_alchemist/boss_alchemist",
+				"boss_fish/fish_giga",
+				"boss_ghost/boss_ghost",
+				"boss_limbs/boss_limbs",
+				"boss_pit/boss_pit",
+				"boss_robot/boss_robot",
+				"boss_wizard/boss_wizard",
+				"maggot_tiny/maggot_tiny",
+				"boss_dragon",
+			}
+
+			local boss = pool[Random(1, #pool)]
+
+
+			local players = get_players()
+			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 353 )
+			
+			for i,entity_id in ipairs( players ) do
+                local x, y = EntityGetTransform( entity_id )
+
+				EntityLoad( "data/entities/particles/image_emitters/magical_symbol_fast.xml", x, y - 80 )
+				GamePlaySound( "data/audio/Desktop/event_cues.snd", "event_cues/greed_curse/create", x, y - 80 )
+				if pool == "maggot_tiny" then
+                	creep_id = EntityLoad( "data/entities/animals/".. boss ..".xml", x, y - 140 )
+				else
+                	creep_id = EntityLoad( "data/entities/animals/".. boss ..".xml", x, y - 80 )
+				end
+				EntityAddComponent2(
+					creep_id,
+					"LifetimeComponent",
+					{
+						lifetime=100
+					}
+				)
+			end
+		end,
+	})
+
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_THEEND",
+		ui_name = "$integration_congatwitch_THEEND_name",
+		ui_description = "$integration_congatwitch_THEEND_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.0,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/convert_the_end.xml", x, y )
+			end
+		end,
+	})
+
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_FLUTE_HOLY_BOMB",
+		ui_name = "$integration_congatwitch_FLUTE_HOLY_BOMB_name",
+		ui_description = "$integration_congatwitch_FLUTE_HOLY_BOMB_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 1.2,
+		kind = STREAMING_EVENT_NEUTRAL,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
+
+				--I could ray cast a perfect circle, but this is faster, easier, less resource intensive and gets a similar enough effect
+				EntityLoad( "mods/conga_twitch_mod/files/entities/items/wands/custom/flute.xml", x + 30, y )
+				EntityLoad( "mods/conga_twitch_mod/files/entities/items/wands/custom/flute.xml", x - 30, y )
+				EntityLoad( "mods/conga_twitch_mod/files/entities/items/wands/custom/flute.xml", x + 15, y - 20 )
+				EntityLoad( "mods/conga_twitch_mod/files/entities/items/wands/custom/flute.xml", x - 15, y - 20 )
+				EntityLoad( "mods/conga_twitch_mod/files/entities/items/wands/custom/flute.xml", x + 15, y + 20 )
+				EntityLoad( "mods/conga_twitch_mod/files/entities/items/wands/custom/flute.xml", x - 15, y + 20 )
+			end
+
+			if GameHasFlagRun( "ctep_soothing_holybomb" ) == true and GameHasFlagRun( "ctep_soothing_worm" ) ~= true then
+				GameAddFlagRun( "ctep_soothing_worm" )
+			elseif GameHasFlagRun( "ctep_soothing_holybomb" ) ~= true and GameHasFlagRun( "ctep_soothing_worm" ) ~= true then
+				GameAddFlagRun( "ctep_soothing_holybomb" )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_LUKKI_SOUL",
+		ui_name = "$integration_congatwitch_LUKKI_SOUL_name",
+		ui_description = "$integration_congatwitch_LUKKI_SOUL_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.8,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			local players = get_players()
+			
+			for i,entity_id in ipairs( players ) do
+                local x, y = EntityGetTransform( entity_id )
+
+                local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_lukki_soul.xml", x, y )
+                EntityAddChild( entity_id, cid )
+                GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_NAVI",
+		ui_name = "$integration_congatwitch_NAVI_name",
+		ui_description = "$integration_congatwitch_NAVI_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.9,
+		kind = STREAMING_EVENT_GOOD,
+		action = function(event)
+			local players = get_players()
+			
+			for a,player in ipairs( players ) do
+				if EntityGetComponent(player, "GenomeDataComponent") ~= nil then
+					local count = 1
+					local random_viewer_names = nil
+					local entity_id = nil
+					for i=1,count do
+						entity_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/ghost_navi.xml" )
+
+						set_lifetime( entity_id, 2.0 )
+						EntityAddChild( player, entity_id )
+						
+						local random_viewer_name = StreamingGetRandomViewerName()
+						add_text_above_head( entity_id, random_viewer_name )
+
+						if random_viewer_name ~= "" then
+							if random_viewer_names == nil then
+								random_viewer_names = random_viewer_name
+							else
+								random_viewer_names = random_viewer_names .. ", " .. random_viewer_name
+							end
+						end
+					end
+
+					if random_viewer_names ~= nil then
+						random_viewer_names = random_viewer_names .. " "
+						add_icon_in_hud( entity_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/ghost_navi.png", event, random_viewer_names )
+					end
+				end
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_POPQUIZ",
+		ui_name = "$integration_congatwitch_POPQUIZ_name",
+		ui_description = "$integration_congatwitch_POPQUIZ_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 2.0,
+		kind = STREAMING_EVENT_BAD,
+		action = function(event)
+			local players = get_players()
+
+			for i,entity_id in ipairs( players ) do
+				
+				local pos_x, pos_y = EntityGetTransform(entity_id)
+
+				GamePlaySound( "data/audio/Desktop/event_cues.bank", "event_cues/heart_fullhp/create", pos_x, pos_y )
+				EntityLoad("mods/conga_twitch_mod/files/entities/buildings/popquiz_class_room.xml", pos_x, pos_y )
+
 			end
 		end,
 	})
