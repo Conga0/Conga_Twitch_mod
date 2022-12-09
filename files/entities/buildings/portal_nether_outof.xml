@@ -162,4 +162,16 @@
 		loop="1"
 		>
 	</MagicConvertMaterialComponent>
+
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material_tag="[solid]"
+      steps_per_frame="8"
+      to_material="air"
+      clean_stains="1"
+      is_circle="1"
+      radius="64" 
+	  loop="0"
+	  >
+    </MagicConvertMaterialComponent>
 </Entity>

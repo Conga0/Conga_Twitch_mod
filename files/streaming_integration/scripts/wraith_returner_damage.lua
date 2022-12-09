@@ -57,4 +57,32 @@ function damage_received( damage, desc, entity_who_caused, is_fatal )
 	end
 	
 	GameEntityPlaySound( entity_id, "shoot" )
+
+	--Removes the effect after 90 seconds
+	local frame = GameGetFrameNum()
+	local last_frame = tonumber( GlobalsGetValue( "ctep_startreflective", "-3600" ) )
+	--[[
+	]]--
+	if frame >= last_frame + 5410 then
+		local lua_list = EntityGetComponent(entity_id, "LuaComponent")
+		for i,v in ipairs(lua_list) do
+			local scriptpath = ComponentGetValue2(v, "script_source_file")
+			if (scriptpath == "mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_memory.lua") then
+				EntityRemoveComponent(entity_id, v)
+			end
+			local scriptpath = ComponentGetValue2(v, "script_damage_received")
+			if (scriptpath == "mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_damage.lua") then
+				EntityRemoveComponent(entity_id, v)
+			end
+		end
+		
+		local var_list = EntityGetComponent(entity_id, "VariableStorageComponent")
+		for i,v in ipairs(var_list) do
+			local scriptpath = ComponentGetValue2(v, "name")
+			if (scriptpath == "proj_file_ctm") then
+				EntityRemoveComponent(entity_id, v)
+				GamePrint("Removed variable comp")
+			end
+		end
+	end
 end

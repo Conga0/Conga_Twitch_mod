@@ -36,7 +36,7 @@
 	</LuaComponent>
 
     <LifetimeComponent
-    	lifetime="2400"
+    	lifetime="3600"
     >
 	</LifetimeComponent>
 

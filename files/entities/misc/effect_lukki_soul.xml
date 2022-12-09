@@ -37,7 +37,7 @@
 	
 	<CellEaterComponent
 		radius="19" 
-		eat_probability="20">
+		eat_probability="15">
 	</CellEaterComponent>
 
 </Entity>

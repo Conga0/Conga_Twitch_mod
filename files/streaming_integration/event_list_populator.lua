@@ -128,7 +128,7 @@ end
 		ui_description = "$integration_congatwitch_MUD_MEN_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.85,
+		weight = 1.0,
 		kind = STREAMING_EVENT_GOOD,
 		action = function(event)
 			local players = get_players()
@@ -165,7 +165,7 @@ end
 		ui_description = "$integration_congatwitch_SUMMON_SKOUDE_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.4,
+		weight = 0.9,
 		kind = STREAMING_EVENT_AWFUL,
 		action = function(event)
 			local players = get_players()
@@ -187,7 +187,7 @@ end
 		ui_description = "$integration_congatwitch_HUNGRY_ORB_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.4,
+		weight = 0.5,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			local players = get_players()
@@ -211,7 +211,7 @@ end
 		ui_description = "$integration_congatwitch_DELUSIONAL_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.9,
+		weight = 1.0,
 		kind = STREAMING_EVENT_BAD,
 		action = function(event)
 			local players = get_players()
@@ -235,7 +235,7 @@ end
 		ui_description = "$integration_congatwitch_CLOWNS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.8,
+		weight = 1.0,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			local players = get_players()
@@ -304,10 +304,48 @@ end
 			local players = get_players()
 			
 			for i,entity_id in ipairs( players ) do
+
+				--Visuals
                 local x, y = EntityGetTransform( entity_id )
 
-                local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_plagiarize_reflective_weirdo.xml", x, y )
+                local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_plagiarize_reflective_weirdo_new.xml", x, y )
                 EntityAddChild( entity_id, cid )
+
+				--Adds reflective weirdo effect to player
+				EntityAddComponent2(
+					entity_id,
+					"LuaComponent",
+					{
+						execute_on_added = false,
+						execute_every_n_frame=-1,
+						script_damage_received="mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_damage.lua",
+						remove_after_executed = false,
+						execute_times=-1
+					}
+				)
+				EntityAddComponent2(
+					entity_id,
+					"LuaComponent",
+					{
+						execute_on_added = false,
+						execute_every_n_frame=3,
+						script_source_file="mods/conga_twitch_mod/files/streaming_integration/scripts/wraith_returner_memory.lua",
+						remove_after_executed = false,
+						execute_times=-1
+					}
+				)
+				EntityAddComponent2(
+					entity_id,
+					"VariableStorageComponent",
+					{
+						name="proj_file_ctm",
+						value_string="data/entities/projectiles/wraith_glowing_laser.xml",
+						value_float=0.5
+					}
+				)
+
+				local start_frame = GameGetFrameNum()
+				GlobalsSetValue( "ctep_startreflective", tostring(start_frame) )
                 GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
 			end
 		end,
@@ -711,7 +749,7 @@ end
 		ui_description = "$integration_congatwitch_POLY_WORM_END_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 1.0,
+		weight = 0.9,
 		kind = STREAMING_EVENT_AWFUL,
 		action = function(event)
 			local players = get_players()
@@ -799,7 +837,7 @@ end
 		ui_description = "$integration_congatwitch_RANDOM_ENEMY_ATTACKS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 1.2,
+		weight = 1.7,
 		kind = STREAMING_EVENT_BAD,
 		delay_timer = 180,
 		action = function(event)
@@ -1148,7 +1186,7 @@ end
 		ui_description = "$integration_congatwitch_JUMPSCARE_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 1.0,
+		weight = 0.9,
 		kind = STREAMING_EVENT_AWFUL,
 		action = function(event)
 
@@ -1322,7 +1360,7 @@ end
 		ui_description = "$integration_congatwitch_POPQUIZ_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 2.0,
+		weight = 1.8,
 		kind = STREAMING_EVENT_BAD,
 		action = function(event)
 			local players = get_players()

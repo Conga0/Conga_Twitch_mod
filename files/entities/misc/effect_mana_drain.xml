@@ -36,7 +36,7 @@
 	</LuaComponent>
 
     <GameEffectComponent
-        frames="720"
+        frames="960"
     >
 	</GameEffectComponent >
 

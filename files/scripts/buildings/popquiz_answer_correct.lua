@@ -58,6 +58,7 @@ function item_pickup( entity_item, entity_who_picked, name )
     EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x + 96, y - 96 )
     EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x, y - 96 )
     EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x - 96, y - 96 )
+    EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_tiny.xml", x, y + 5 )
     GamePlaySound( "data/audio/Desktop/event_cues.bank", "event_cues/heart_fullhp/create", x, y )
     EntityKill( entity_item )
 
