@@ -54,7 +54,7 @@ end
 		ui_description = "$integration_congatwitch_WAND_WONDERS_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.8,
+		weight = 0.7,
 		kind = STREAMING_EVENT_NEUTRAL,
 		action = function(event)
 			local players = get_players()
@@ -187,8 +187,8 @@ end
 		ui_description = "$integration_congatwitch_HUNGRY_ORB_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "Conga Lyne - Mo Creeps",
-		weight = 0.5,
-		kind = STREAMING_EVENT_NEUTRAL,
+		weight = 0.4,
+		kind = STREAMING_EVENT_GOOD,
 		action = function(event)
 			local players = get_players()
 			
@@ -593,6 +593,12 @@ end
 				EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/cage.xml", x, y )
 				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/event_cage_visual.xml", x, y )
 				EntityAddChild( entity_id, effect_id )
+
+				local enemy_list = EntityGetWithTag("enemy")
+				SetRandomSeed(x,y)
+				local fighter = enemy_list[Random(1,#enemy_list)]
+				EntitySetTransform(fighter, x - 30, y)
+				EntityLoad( "mods/conga_twitch_mod/files/entities/misc/poof_green_dense.xml", x - 30, y )
 			end
 		end,
 	})
@@ -1174,6 +1180,30 @@ end
                 local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_flight_infinite.xml", x, y )
                 EntityAddChild( entity_id, cid )
                 GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
+			end
+		end,
+	})
+	
+
+    table.insert(streaming_events,
+	{
+		id = "CONGATWITCH_SPELLS_TO_HAMIS",
+		ui_name = "$integration_congatwitch_SPELLS_TO_HAMIS_name",
+		ui_description = "$integration_congatwitch_SPELLS_TO_HAMIS_desc",
+		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
+		ui_author = "Conga Lyne - Conga's Twitch Expansion Pack",
+		weight = 0.9,
+		kind = STREAMING_EVENT_BAD,
+		delay_timer = 180,
+		action_delayed = function(event)
+			for i,entity_id in pairs( get_players() ) do
+				local x, y = EntityGetTransform( entity_id )
+				
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/effect_spells_to_hamis.xml", x, y )
+				set_lifetime( effect_id )
+				EntityAddChild( entity_id, effect_id )
+				
+				add_icon_in_hud( effect_id, "mods/conga_twitch_mod/files/ui_gfx/status_indicators/spells_to_hamis.png", event )
 			end
 		end,
 	})

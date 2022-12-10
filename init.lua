@@ -47,8 +47,8 @@ integration_congatwitch_TRANSFORM_BULLETS_name,"Spells to Bullets",,,,,,,,,,,,,
 integration_congatwitch_TRANSFORM_BULLETS_desc,"All projectiles currently in the air turn into high-calibre bullets!",,,,,,,,,,,,,
 integration_congatwitch_GOOD_SPELL_DROP_name,"Good Spell Package",,,,,,,,,,,,,
 integration_congatwitch_GOOD_SPELL_DROP_desc,"A care package of good spells to start a god-run appears on the floor!",,,,,,,,,,,,,
-integration_congatwitch_CAGE_name,"Streamer Cage",,,,,,,,,,,,,
-integration_congatwitch_CAGE_desc,"You belong in time out for a bit",,,,,,,,,,,,,
+integration_congatwitch_CAGE_name,"Cage Fight",,,,,,,,,,,,,
+integration_congatwitch_CAGE_desc,"Fight to the death!",,,,,,,,,,,,,
 integration_congatwitch_MASS_STATUS_WET_name,"Mass Wet",,,,,,,,,,,,,
 integration_congatwitch_MASS_STATUS_WET_desc,"It's like a trip to the beach!",,,,,,,,,,,,,
 integration_congatwitch_MASS_STATUS_DRUNK_name,"Mass Drunk",,,,,,,,,,,,,
@@ -79,6 +79,8 @@ integration_congatwitch_NETHER_PORTAL_name,"Nether Portal",,,,,,,,,,,,,
 integration_congatwitch_NETHER_PORTAL_desc,"We Need To Go Deeper",,,,,,,,,,,,,
 integration_congatwitch_FLIGHT_INFINITE_name,"Temporary Flight",,,,,,,,,,,,,
 integration_congatwitch_FLIGHT_INFINITE_desc,"Soar high, as high as your heart desires",,,,,,,,,,,,,
+integration_congatwitch_SPELLS_TO_HAMIS_name,"Spells to Hämis",,,,,,,,,,,,,
+integration_congatwitch_SPELLS_TO_HAMIS_desc,"All projectiles currently in the air transform into Hämis",,,,,,,,,,,,,
 integration_congatwitch_JUMPSCARE_name,"Jumpscare",,,,,,,,,,,,,
 integration_congatwitch_JUMPSCARE_desc,"BOO!",,,,,,,,,,,,,
 integration_congatwitch_THEEND_name,"What does that mean?",,,,,,,,,,,,,
@@ -117,6 +119,9 @@ log_congatwitch_popquiz_escape_name,"I told you not to skip class!!!",,,,,,,,,,,
 log_congatwitch_popquiz_escape_desc,"Go directly to detention! In Hell!",,,,,,,,,,,,,
 ]])
 
+
+--integration_congatwitch_CAGE_name,"Streamer Cage",,,,,,,,,,,,,
+--integration_congatwitch_CAGE_desc,"You belong in time out for a bit",,,,,,,,,,,,,
 
 -- Adds musical_stone tag to the worm projectile, not to make musical ghosts appear but rather to make it double for a "spells to worms" effect
 if ModIsEnabled("Mo_Creeps") == false then

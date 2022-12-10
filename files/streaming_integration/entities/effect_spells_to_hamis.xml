@@ -1,0 +1,19 @@
+<Entity tags="projectile_player" >
+	<LuaComponent
+		script_source_file="mods/conga_twitch_mod/files/streaming_integration/scripts/effect_spells_to_hamis.lua"
+		execute_every_n_frame="3"
+		execute_on_added="0"
+		>
+	</LuaComponent>
+	
+	<LifetimeComponent
+		lifetime="2700"
+		>
+	</LifetimeComponent>
+	
+	<AudioComponent
+      file="data/audio/Desktop/projectiles.bank"
+      event_root="player_projectiles/all_spell"
+      set_latest_event_position="1" >
+	</AudioComponent>
+</Entity>
