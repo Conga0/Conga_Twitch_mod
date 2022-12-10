@@ -33,14 +33,35 @@ function item_pickup( entity_item, entity_who_picked, name )
     elseif prize >= 80 then
         local effect_id = EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/popquiz_pandora_punishment.xml", x, y )
     elseif prize >= 60 then
-        local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_plagiarize_swapper_long.xml", x, y )
-        EntityAddChild( entity_who_picked, cid )
-        GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
+        local players = EntityGetWithTag("player_unit")
+			
+        for i,entity_id in ipairs( players ) do
+
+            EntityAddComponent2(
+                entity_id,
+                "LuaComponent",
+                {
+                    execute_on_added = false,
+                    execute_every_n_frame=-1,
+                    script_damage_received="mods/conga_twitch_mod/files/scripts/status_effects/plagiarize_swapper.lua",
+                    remove_after_executed = false,
+                    execute_times=-1
+                }
+            )
+
+            local start_frame = (GameGetFrameNum() + 1800)
+            GlobalsSetValue( "ctep_startswapper", tostring(start_frame) )
+
+            local x, y = EntityGetTransform( entity_id )
+            local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_plagiarize_swapper_visual_long.xml", x, y )
+            EntityAddChild( entity_id, cid )
+            GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
+        end
     elseif prize >= 50 then
-        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x + 8, y - 48)
-        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x + 4, y - 48)
-        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x - 4, y - 48)
-        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x - 8, y - 48)
+        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x + 16, y - 64)
+        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x + 8, y - 64)
+        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x - 8, y - 64)
+        EntityLoad( "data/entities/items/pickup/potion_aggressive.xml", x - 16, y - 64)
         EntityLoad( "mods/conga_twitch_mod/files/entities/particles/smoke_cloud_generator.xml", x, y - 48 )
     elseif prize >= 40 then
         EntityLoad( "data/entities/animals/skullfly.xml", x - 32, y - 64 )

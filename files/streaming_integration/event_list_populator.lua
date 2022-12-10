@@ -279,9 +279,24 @@ end
 			local players = get_players()
 			
 			for i,entity_id in ipairs( players ) do
-                local x, y = EntityGetTransform( entity_id )
 
-                local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_plagiarize_swapper.xml", x, y )
+				EntityAddComponent2(
+					entity_id,
+					"LuaComponent",
+					{
+						execute_on_added = false,
+						execute_every_n_frame=-1,
+						script_damage_received="mods/conga_twitch_mod/files/scripts/status_effects/plagiarize_swapper.lua",
+						remove_after_executed = false,
+						execute_times=-1
+					}
+				)
+
+				local start_frame = GameGetFrameNum()
+				GlobalsSetValue( "ctep_startswapper", tostring(start_frame) )
+
+                local x, y = EntityGetTransform( entity_id )
+                local cid = EntityLoad( "mods/conga_twitch_mod/files/entities/misc/effect_plagiarize_swapper_visual.xml", x, y )
                 EntityAddChild( entity_id, cid )
                 GamePlaySound( "data/audio/Desktop/projectiles.bank", "player_projectiles/megalaser/launch", x, y )
 			end

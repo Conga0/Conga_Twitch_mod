@@ -57,7 +57,7 @@
     is_pickable="1"
     is_equipable_forced="1"
     ui_sprite="mods/conga_twitch_mod/files/ui_gfx/items/orb_mattereater.png"
-    ui_description="$item_congatwitch_orb_mattereater_name"
+    ui_description="$item_congatwitch_orb_mattereater_desc"
     preferred_inventory="QUICK"
   ></ItemComponent>
   
