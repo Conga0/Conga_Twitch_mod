@@ -174,4 +174,9 @@
 	  loop="0"
 	  >
     </MagicConvertMaterialComponent>
+	
+	<CellEaterComponent
+		radius="30" 
+		eat_probability="5">
+	</CellEaterComponent>
 </Entity>

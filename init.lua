@@ -55,7 +55,7 @@ integration_congatwitch_MASS_STATUS_DRUNK_name,"Mass Drunk",,,,,,,,,,,,,
 integration_congatwitch_MASS_STATUS_DRUNK_desc,"You're the life of the party!",,,,,,,,,,,,,
 integration_congatwitch_MASS_STATUS_FIRE_name,"Mass Burning",,,,,,,,,,,,,
 integration_congatwitch_MASS_STATUS_FIRE_desc,"Hell Fire!!!",,,,,,,,,,,,,
-integration_congatwitch_STATUS_AILMENT_GHOST_name,"Cleansing Ghost",,,,,,,,,,,,,
+integration_congatwitch_STATUS_AILMENT_GHOST_name,"Status Ailment Ghost",,,,,,,,,,,,,
 integration_congatwitch_STATUS_AILMENT_GHOST_desc,"You get a ghostly friend who will clear negative status effects",,,,,,,,,,,,,
 integration_congatwitch_LAG_PLAYER_name,"Dial up Internet",,,,,,,,,,,,,
 integration_congatwitch_LAG_PLAYER_desc,"Your connection looks a bit shoddy",,,,,,,,,,,,,
@@ -161,3 +161,21 @@ dofile_once( "mods/conga_twitch_mod/lib/polytools/polytools_init.lua").init( "mo
 
 --Appending extra modiifers
 ModLuaFileAppend( "data/scripts/gun/gun_extra_modifiers.lua", "mods/conga_twitch_mod/files/scripts/gun/gun_extra_modifiers_populator.lua")
+
+--Debugging
+--[[
+local ModEnabledMoCreep = ModIsEnabled("Mo_Creeps")
+local MocreepTest = HasFlagPersistent( "mocreeps_card_unlocked_welcome_hint" )
+
+function OnPlayerSpawned()
+    if ModEnabledMoCreep == false then
+    GamePrint("SUCCESS INITIALISED 666")
+    end
+    if MocreepTest == true then
+    GamePrint("SUCCESS INITIALISED 777")
+    end
+    if (ModEnabledMoCreep == true) and (MocreepTest == true) then
+    GamePrint("SUCCESS INITIALISED 999")
+    end
+end
+]]--

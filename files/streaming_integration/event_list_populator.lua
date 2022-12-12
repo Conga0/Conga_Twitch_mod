@@ -8,8 +8,10 @@ if ModEnabledMoCreep then
 	congatwitch_random_wraiths_desc = "$integration_congatwitch_RANDOM_WRAITHS_desc_mocreepcompat"
 end
 
+--The only time MoCreeps isn't given mod compatibility priority
 
-	if ModEnabledMoCreep == false then
+
+	--if ModEnabledMoCreep == false then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_RANDOM_CATS",
@@ -43,10 +45,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false then
+	--if ModEnabledMoCreep == false then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_WAND_WONDERS",
@@ -68,10 +70,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false then
+	--if ModEnabledMoCreep == false then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_PANDORA_CHEST",
@@ -92,10 +94,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false then
+	--if ModEnabledMoCreep == false then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_TRANSFORM_WORMS",
@@ -118,9 +120,9 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
-	if ModEnabledMoCreep == false and (MocreepTest == true) then
+	--if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_MUD_MEN",
@@ -155,9 +157,9 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
-	if ModEnabledMoCreep == false and (MocreepTest == true) then
+	--if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_SUMMON_SKOUDE",
@@ -176,10 +178,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false and (MocreepTest == true) then
+	--if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_HUNGRY_ORB",
@@ -200,10 +202,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false and (MocreepTest == true) then
+	--if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_DELUSIONAL",
@@ -224,10 +226,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false and (MocreepTest == true) then
+	--if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_CLOWNS",
@@ -262,10 +264,10 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
-	if ModEnabledMoCreep == false and (MocreepTest == true) then
+	--if ModEnabledMoCreep == false and (MocreepTest == true) then
     table.insert(streaming_events,
 	{
 		id = "CONGATWITCH_SWAPPER_CURSE",
@@ -302,7 +304,7 @@ end
 			end
 		end,
 	})
-	end
+	--end
 
 
 
@@ -1405,7 +1407,7 @@ end
 		ui_description = "$integration_congatwitch_POPQUIZ_desc",
 		ui_icon = "data/ui_gfx/streaming_event_icons/health_plus.png",
 		ui_author = "(Concept by Pitogiiyo) Conga Lyne - Conga's Twitch Expansion Pack",
-		weight = 1.8,
+		weight = 2.0,
 		kind = STREAMING_EVENT_BAD,
 		action = function(event)
 			local players = get_players()
