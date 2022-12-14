@@ -5,3 +5,5 @@ Sorako Hinoguchi - Voicing Cats
 Spoopy (The One The Only Spoopy Boi#7859) - Creating fluffy cat sprites
 
 Squirrelly#6472 - Created the mana drain effect lua script, your mana wouldn't be stolen without their help
+
+BlueBerryy - Russian Translation
