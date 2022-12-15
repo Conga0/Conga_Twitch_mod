@@ -139,8 +139,8 @@ end
             local count = 10
 			
 			for i,entity_id in ipairs( players ) do
+				local x, y = EntityGetTransform( entity_id )
                 repeat
-                    local x, y = EntityGetTransform( entity_id )
                     
                     local angle = Random( 0, 31415 ) * 0.0001
                     local length = 45
@@ -154,6 +154,9 @@ end
                     count = count - 1
         
                 until (count < 1)
+				local effect_id = EntityLoad( "mods/conga_twitch_mod/files/streaming_integration/entities/effect_protection_all_mud.xml", x, y )
+				--set_lifetime( effect_id, 0.75 )
+				EntityAddChild( entity_id, effect_id )
 			end
 		end,
 	})
