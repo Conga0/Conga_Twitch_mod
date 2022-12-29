@@ -1031,7 +1031,7 @@ end
 					"deck/big_magic_shield_start",
 					"deck/black_hole",
 					"deck/black_hole_big",
-					"deck/black_hole_giga",
+					--"deck/black_hole_giga", hahaha... no.
 					"deck/bloodtentacle",
 					"deck/bomb_detonator",
 					"deck/bouncy_orb",

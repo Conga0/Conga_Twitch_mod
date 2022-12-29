@@ -55,11 +55,16 @@ function item_pickup( entity_item, entity_who_picked, name )
         end
     end
 
-    EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x + 96, y - 96 )
-    EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x, y - 96 )
-    EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x - 96, y - 96 )
-    EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_tiny.xml", x, y + 5 )
+    --EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x + 96, y - 96 )
+    --EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x, y - 96 )
+    --EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_small.xml", x - 96, y - 96 )
+    --EntityLoad( "mods/conga_twitch_mod/files/entities/buildings/remove_ground_tiny.xml", x, y + 5 )
     GamePlaySound( "data/audio/Desktop/event_cues.bank", "event_cues/heart_fullhp/create", x, y )
+
+    local pos_x = tonumber( GlobalsGetValue( "ctep_popquiz_x", "0" ) )
+    local pos_y = tonumber( GlobalsGetValue( "ctep_popquiz_y", "0" ) )
+    EntityLoad("mods/conga_twitch_mod/files/entities/buildings/popquiz_class_room_deleter.xml", pos_x , pos_y )
+
     EntityKill( entity_item )
 
 end

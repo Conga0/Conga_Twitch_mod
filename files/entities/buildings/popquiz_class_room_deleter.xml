@@ -1,0 +1,15 @@
+<Entity>
+	<PixelSceneComponent
+		pixel_scene="mods/conga_twitch_mod/files/biome_impl/popquiz_classroom_delete.png"
+		pixel_scene_visual=""
+		pixel_scene_background=""
+		offset_x="-120"
+		offset_y="-90"
+		skip_biome_checks="1"
+		>
+	</PixelSceneComponent>
+	<LifetimeComponent
+		lifetime="60"
+		>
+	</LifetimeComponent>
+</Entity>

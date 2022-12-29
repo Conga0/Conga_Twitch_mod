@@ -26,6 +26,8 @@ EntityLoad("mods/conga_twitch_mod/files/entities/items/pickups/popquiz/" .. choi
 
 
 GamePlaySound( "data/audio/Desktop/event_cues.snd", "event_cues/wand/create", pos_x, pos_y)
+GlobalsSetValue( "ctep_popquiz_x", tostring(pos_x) )
+GlobalsSetValue( "ctep_popquiz_y", tostring(pos_y) )
 
 
 EntityLoad("mods/conga_twitch_mod/files/entities/props/popquiz/timer_01.xml", pos_x , pos_y - 60 )
