@@ -1247,7 +1247,7 @@ end
 				"boss_ghost/boss_ghost",
 				"boss_limbs/boss_limbs",
 				"boss_pit/boss_pit",
-				"boss_robot/boss_robot",
+				--"boss_robot/boss_robot", Easily 1 shots the player out of nowhere without much time to react
 				"boss_wizard/boss_wizard",
 				"maggot_tiny/maggot_tiny",
 				"boss_dragon",
