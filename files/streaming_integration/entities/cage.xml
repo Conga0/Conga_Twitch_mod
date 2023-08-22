@@ -62,7 +62,7 @@
   
   
   
-   <ParticleEmitterComponent 
+   <ParticleEmitterComponent
 		emitted_material_name="spark_purple_bright"
 		gravity.y="0.0"
 		lifetime_min="1.0"
@@ -108,8 +108,8 @@
 		velocity_always_away_from_center="-30"
 		airflow_time="2.01"
 		airflow_scale="0.15"
-		emission_interval_min_frames="1"
-		emission_interval_max_frames="1"
+		emission_interval_min_frames="2"
+		emission_interval_max_frames="2"
 		emit_cosmetic_particles="1"
 		image_animation_file="mods/conga_twitch_mod/files/particles/image_emitters/cage.png"
 		image_animation_speed="20"
@@ -138,8 +138,8 @@
 		velocity_always_away_from_center="30"
 		airflow_time="2.01"
 		airflow_scale="0.15"
-		emission_interval_min_frames="1"
-		emission_interval_max_frames="1"
+		emission_interval_min_frames="2"
+		emission_interval_max_frames="2"
 		emit_cosmetic_particles="1"
 		image_animation_file="mods/conga_twitch_mod/files/particles/image_emitters/cage.png"
 		image_animation_speed="20"

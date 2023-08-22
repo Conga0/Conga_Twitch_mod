@@ -415,7 +415,7 @@ end
                     local ex = x + math.cos( angle ) * length
                     local ey = y - math.sin( angle ) * length
 
-                    local creep_id =EntityLoad( "data/entities/animals/"..pool[Random(1, #pool)]..".xml", ex, ey )
+                    local creep_id = EntityLoad( "data/entities/animals/"..pool[Random(1, #pool)]..".xml", ex, ey )
                     add_text_above_head( creep_id, StreamingGetRandomViewerName() )
 
                     catcount = catcount - 1
